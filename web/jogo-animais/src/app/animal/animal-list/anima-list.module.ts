@@ -6,6 +6,7 @@ import { AnimalFormComponent } from '../animal-form/animal-form.component';
 import { AnimalService } from '../animal.service';
 import { HttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 export const routes: Routes = [
   { path: '', component: AnimalListComponent },
@@ -17,7 +18,8 @@ export const routes: Routes = [
   declarations: [AnimalListComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgxPaginationModule
   ],
   providers: [
     AnimalService

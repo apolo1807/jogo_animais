@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AnimalAdvinharComponent } from './animal-advinhar.component';
 import { Etapa1Component } from './etapa1/etapa1.component';
 

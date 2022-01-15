@@ -2,3 +2,7 @@
 body {
   background-color: #87CEEB;
 }
+
+#title {
+  text-shadow: 0.1em 0.1em 0.2em black;
+}

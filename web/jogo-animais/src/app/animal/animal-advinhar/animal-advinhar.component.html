@@ -4,20 +4,25 @@
       <h5 class="card-title text-center">Deixe-me advinhar</h5>
       <hr>
       <div class="card-text text-center" *ngIf="animalSelecionado">
-        <p *ngIf="sim === 1"> Seu animal {{ animalSelecionado.caracteristica }}? </p>
-        <p *ngIf="sim === 2"> Seu animal {{ animalSelecionado.caracteristica2 }}? </p>
-        <p *ngIf="sim === 3">Seu animal é um(a) {{ animalSelecionado.nome }}</p>
-        <p *ngIf="sim === 4">Eu venci!</p>
+        <p *ngIf="errou != 3"> O animel que você pensou é um {{ animalSelecionado.nome }} e tem as seguintes caracteristicas: <br>
+            <span class="text-info">Primeira</span>: {{ animalSelecionado.caracteristica }} <br>
+            <span class="text-info">Segunda</span>: {{ animalSelecionado.caracteristica2 }} </p>
+        <p *ngIf="acertou === 2" class="text-success">Eu venci!</p>
+        <p *ngIf="errou === 3" class="text-danger"> Você venceu :(</p>
       </div>
     </div>
     <div class="card-body">
-      <div class="d-grid gap-2 col-6 mx-auto text-center" *ngIf="sim != 4">
-        <button class="btn btn-outline-success btn-sm" (click)="respostaSim()"> Sim </button>
-        <button class="btn btn-outline-danger btn-sm" (click)="respostaNao()"> Não </button>
+      <div class="d-grid gap-2 col-6 mx-auto text-center" *ngIf="acertou != 2 && errou != 3">
+        <button class="btn btn-outline-success btn-sm" (click)="respostaSim()"> Acertou </button>
+        <button class="btn btn-outline-danger btn-sm" (click)="respostaNao()"> Errou </button>
       </div>
-      <div *ngIf="sim === 4">
+      <div *ngIf="acertou === 2">
         <button class="btn btn-outline-success me-1" (click)="jogarNovamente()">Jogar novamente</button>
         <button class="btn btn-outline-danger" routerLink="/home">Voltar</button>
+      </div>
+      <div *ngIf="errou === 3">
+        <button class="btn btn-outline-success btn-sm me-1" routerLink="/animal/new">Cadastre um novo animal!</button>
+        <button class="btn btn-outline-danger btn-sm" routerLink="/home">Voltar</button>
       </div>
     </div>
   </div>

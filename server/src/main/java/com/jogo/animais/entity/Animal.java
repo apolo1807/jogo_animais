@@ -22,8 +22,4 @@ public class Animal {
 
     @Column
     private String caracteristica2;
-
-    //private Integer idPai;
-    //private Integer filhoDaResposta;
-
 }

@@ -4,9 +4,12 @@ import { AnimalService } from '../animal.service';
 
 @Component({
   selector: 'app-animal-list',
-  templateUrl: './animal-list.component.html'
+  templateUrl: './animal-list.component.html',
+  styleUrls: ['./animal-list.component.css']
 })
 export class AnimalListComponent implements OnInit {
+
+  public paginaAtual = 1;
 
   animais: AnimalModel[];
   animalModal: AnimalModel;

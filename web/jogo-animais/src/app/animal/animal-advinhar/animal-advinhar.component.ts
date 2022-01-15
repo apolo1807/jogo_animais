@@ -4,18 +4,17 @@ import { AnimalService } from '../animal.service';
 
 @Component({
   selector: 'app-animal-advinhar',
-  templateUrl: './animal-advinhar.component.html',
-  styleUrls: ['./animal-advinhar.component.css']
+  templateUrl: './animal-advinhar.component.html'
 })
 export class AnimalAdvinharComponent implements OnInit {
 
   animalSelecionado: AnimalModel;
-  sim: number = 1;
-  nao: number;
-  repetiu: boolean;
+  selecionarAleatoriamente: number = 0;
+  acertou: number = 1;
+  errou: number = 0;
 
   identificador:number[] = [];
-  repetido: number[] = [0];
+  repetido: number[] = [];
 
   constructor(private _service: AnimalService) { }
 
@@ -32,24 +31,26 @@ export class AnimalAdvinharComponent implements OnInit {
         quantidadeAnimais = i;
       }
 
-      let selecionarAleatoriamente = this.getRandomAnimal(quantidadeAnimais);
+      this.selecionarAleatoriamente = this.getRandomAnimal(quantidadeAnimais);
 
       animais.forEach(animal => {
 
         this.identificador.push(animal.id);
 
-        if(this.identificador[selecionarAleatoriamente] === animal.id) {
-          this.animalSelecionado = animal;
-          this.repetido.push(animal.id);
+        if(this.errou > 0) {
+          this.repetido.forEach(repetiu => {
+            while(repetiu === this.selecionarAleatoriamente) {
+              this.selecionarAleatoriamente = this.getRandomAnimal(quantidadeAnimais);
+            }
+          })
         }
 
+        if(this.identificador[this.selecionarAleatoriamente] === animal.id) {
+          this.animalSelecionado = animal;
+          this.repetido.push(this.selecionarAleatoriamente);
+        }
+        
       })
-
-      console.log(selecionarAleatoriamente);
-
-      console.log(this.repetido);
-      console.log(this.animalSelecionado);
-
     });
   }
 
@@ -58,14 +59,16 @@ export class AnimalAdvinharComponent implements OnInit {
   }
 
   respostaSim() {
-    this.sim ++;
+    this.acertou ++;
   }
 
   respostaNao() {
+    this.errou ++;
     this.getAnimais();
   }
 
   jogarNovamente() {
-    window.location.reload();
+    this.getAnimais();
+    this.acertou = 1;
   }
 }

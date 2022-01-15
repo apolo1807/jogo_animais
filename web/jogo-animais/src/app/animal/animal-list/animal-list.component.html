@@ -4,7 +4,7 @@
     Animal deletado!
   </div>
 
-  <table class="table">
+  <table class="table text-light" id="tabela">
     <thead>
       <tr>
         <th scope="col">Nome</th>
@@ -12,7 +12,7 @@
         <th scope="col">Caracteristica 2</th>
       </tr>
     </thead>
-    <tbody *ngFor="let animais of animais">
+    <tbody *ngFor="let animais of animais | paginate: {itemsPerPage: 5, currentPage: paginaAtual};">
       <tr>
         <td>{{ animais.nome }}</td>
         <td>{{ animais.caracteristica }}</td>
@@ -23,6 +23,7 @@
         </td>
       </tr>
     </tbody>
+    <pagination-controls (pageChange)="paginaAtual = $event"></pagination-controls>
   </table>
   <button class="btn btn-success btn-sm me-1" routerLink="new"> Adicionar novo </button>
   <button class="btn btn-info btn-sm text-light" routerLink="/home"> Voltar ao Início </button>

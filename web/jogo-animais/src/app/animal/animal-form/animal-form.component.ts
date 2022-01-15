@@ -6,8 +6,7 @@ import { AnimalService } from '../animal.service';
 
 @Component({
   selector: 'app-animal-form',
-  templateUrl: './animal-form.component.html',
-  styleUrls: ['./animal-form.component.css']
+  templateUrl: './animal-form.component.html'
 })
 export class AnimalFormComponent implements OnInit {
 
