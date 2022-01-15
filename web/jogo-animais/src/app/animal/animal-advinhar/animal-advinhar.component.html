@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-center align-items-center">
+  <div class="card" style="font-family: 'Bangers', cursive; width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title text-center">Deixe-me advinhar</h5>
+      <hr>
+      <div class="card-text text-center" *ngIf="animalSelecionado">
+        <p *ngIf="sim === 1"> Seu animal {{ animalSelecionado.caracteristica }}? </p>
+        <p *ngIf="sim === 2"> Seu animal {{ animalSelecionado.caracteristica2 }}? </p>
+        <p *ngIf="sim === 3">Seu animal é um(a) {{ animalSelecionado.nome }}</p>
+        <p *ngIf="sim === 4">Eu venci!</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="d-grid gap-2 col-6 mx-auto text-center" *ngIf="sim != 4">
+        <button class="btn btn-outline-success btn-sm" (click)="respostaSim()"> Sim </button>
+        <button class="btn btn-outline-danger btn-sm" (click)="respostaNao()"> Não </button>
+      </div>
+      <div *ngIf="sim === 4">
+        <button class="btn btn-outline-success me-1" (click)="jogarNovamente()">Jogar novamente</button>
+        <button class="btn btn-outline-danger" routerLink="/home">Voltar</button>
+      </div>
+    </div>
+  </div>
+</div>

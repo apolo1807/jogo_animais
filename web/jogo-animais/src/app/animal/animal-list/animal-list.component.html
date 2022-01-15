@@ -1,0 +1,29 @@
+<div style="font-family: 'Bangers', cursive;">
+
+  <div class="alert alert-danger" role="alert" *ngIf="deletado">
+    Animal deletado!
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Caracteristica</th>
+        <th scope="col">Caracteristica 2</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let animais of animais">
+      <tr>
+        <td>{{ animais.nome }}</td>
+        <td>{{ animais.caracteristica }}</td>
+        <td>{{ animais.caracteristica2 }}</td>
+        <td>
+          <button class="btn btn-warning me-1" routerLink="{{ animais.id }}">Editar</button>
+          <button class="btn btn-danger" (click)="deletar(animais)">Deletar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-success btn-sm me-1" routerLink="new"> Adicionar novo </button>
+  <button class="btn btn-info btn-sm text-light" routerLink="/home"> Voltar ao Início </button>
+</div>

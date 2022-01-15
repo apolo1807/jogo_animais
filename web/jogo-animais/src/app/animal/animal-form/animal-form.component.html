@@ -1,0 +1,23 @@
+<form class="container mt-5" [formGroup]="form" (ngSubmit)="salvar()">
+  <div class="row">
+    <div class="col-9" style="font-family: 'Bangers', cursive;">
+      <div class="input-group mb-3">
+        <label for="nome" class="input-group-text"> Nome do animal: </label>
+        <input type="text" name="nome" id="nome" class="form-control" formControlName="nome" placeholder="Pica-pau">
+      </div>
+      <div class="input-group mb-3" id="caracteristicas-group">
+        <label for="caracteristicas" class="input-group-text">Características: </label>
+        <input type="text" name="caracteristicas" id="caracteristicas" class="form-control" formControlName="caracteristica" placeholder="Tem bico e penas">
+      </div>
+      <div class="input-group mb-3" id="caracteristicas-group">
+        <label for="caracteristicas2" class="input-group-text">Características 2: </label>
+        <input type="text" name="caracteristicas2" id="caracteristicas2" class="form-control" formControlName="caracteristica2" placeholder="Bica madeira">
+      </div>
+      <button type="submit" class="btn btn-success btn-sm me-1">Salvar</button>
+      <button type="submit" class="btn btn-info btn-sm text-light" routerLink="/animal">Voltar</button>
+    </div>
+    <div class="col">
+      <img src="../../../assets/bird.gif" class="img-fluid">
+    </div>
+  </div>
+</form>
