@@ -8,7 +8,10 @@
             <span class="text-info">Primeira</span>: {{ animalSelecionado.caracteristica }} <br>
             <span class="text-info">Segunda</span>: {{ animalSelecionado.caracteristica2 }} </p>
         <p *ngIf="acertou === 2" class="text-success">Eu venci!</p>
-        <p *ngIf="errou === 3" class="text-danger"> Você venceu :(</p>
+        <div *ngIf="errou === 3" class="text-danger">
+          <p class="text-danger"> Você venceu :(</p>
+          <p>Adicione mais animais para ampliar os meus poderes de adivinhação <i class="bi bi-emoji-smile"></i></p>
+        </div>
       </div>
     </div>
     <div class="card-body">
