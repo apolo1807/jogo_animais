@@ -12,7 +12,6 @@ export class AnimalAdvinharComponent implements OnInit {
   selecionarAleatoriamente: number = 0;
   acertou: number = 1;
   errou: number = 0;
-
   identificador:number[] = [];
   repetido: number[] = [];
 
@@ -33,23 +32,20 @@ export class AnimalAdvinharComponent implements OnInit {
 
       this.selecionarAleatoriamente = this.getRandomAnimal(quantidadeAnimais);
 
+      while(this.repetido.includes(this.selecionarAleatoriamente)) {
+        this.selecionarAleatoriamente = this.getRandomAnimal(quantidadeAnimais);
+      }
+
+      this.repetido.push(this.selecionarAleatoriamente);
+
       animais.forEach(animal => {
 
         this.identificador.push(animal.id);
 
-        if(this.errou > 0) {
-          this.repetido.forEach(repetiu => {
-            while(repetiu === this.selecionarAleatoriamente) {
-              this.selecionarAleatoriamente = this.getRandomAnimal(quantidadeAnimais);
-            }
-          })
-        }
-
         if(this.identificador[this.selecionarAleatoriamente] === animal.id) {
           this.animalSelecionado = animal;
-          this.repetido.push(this.selecionarAleatoriamente);
         }
-        
+
       })
     });
   }
@@ -70,5 +66,7 @@ export class AnimalAdvinharComponent implements OnInit {
   jogarNovamente() {
     this.getAnimais();
     this.acertou = 1;
+    this.errou = 0;
+    this.repetido = [];
   }
 }

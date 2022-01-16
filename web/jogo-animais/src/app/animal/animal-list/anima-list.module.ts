@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnimalListComponent } from './animal-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AnimalFormComponent } from '../animal-form/animal-form.component';
 import { AnimalService } from '../animal.service';
-import { HttpClient } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxPaginationModule, PaginatePipe, PaginationControlsDirective } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 export const routes: Routes = [
   { path: '', component: AnimalListComponent },
@@ -19,10 +18,9 @@ export const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    NgxPaginationModule
+    FormsModule,
+    NgxPaginationModule,
   ],
-  providers: [
-    AnimalService
-  ]
+  providers: [AnimalService]
 })
 export class AnimaListModule { }

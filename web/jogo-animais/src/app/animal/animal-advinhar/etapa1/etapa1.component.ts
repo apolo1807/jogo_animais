@@ -8,5 +8,5 @@ export class Etapa1Component implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {}
 }

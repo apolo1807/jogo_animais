@@ -4,7 +4,7 @@
       <h5 class="card-title text-center">Deixe-me advinhar</h5>
       <hr>
       <div class="card-text text-center" *ngIf="animalSelecionado">
-        <p *ngIf="errou != 3"> O animel que você pensou é um {{ animalSelecionado.nome }} e tem as seguintes caracteristicas: <br>
+        <p *ngIf="errou != 3"> O animal que você pensou é um {{ animalSelecionado.nome }} e tem as seguintes caracteristicas: <br>
             <span class="text-info">Primeira</span>: {{ animalSelecionado.caracteristica }} <br>
             <span class="text-info">Segunda</span>: {{ animalSelecionado.caracteristica2 }} </p>
         <p *ngIf="acertou === 2" class="text-success">Eu venci!</p>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { iif, Observable } from 'rxjs';
 import { AnimalService } from '../animal.service';
@@ -37,9 +37,9 @@ export class AnimalFormComponent implements OnInit {
 
     const form = this.builder.group({
       id: [''],
-      nome: [''],
-      caracteristica: [''],
-      caracteristica2: ['']
+      nome: ['', Validators.required],
+      caracteristica: ['',  Validators.required],
+      caracteristica2: ['',  Validators.required]
     });
 
     return form;
@@ -47,7 +47,7 @@ export class AnimalFormComponent implements OnInit {
 
   salvar() {
     this._service.salvarAnimal(this.form.value).subscribe(() => {
-      this.router.navigateByUrl('/animal')
+      this.router.navigateByUrl('/animal');
     });
   }
 

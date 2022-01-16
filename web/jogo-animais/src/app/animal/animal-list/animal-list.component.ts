@@ -9,7 +9,7 @@ import { AnimalService } from '../animal.service';
 })
 export class AnimalListComponent implements OnInit {
 
-  public paginaAtual = 1;
+  public paginaAtual: number = 1;
 
   animais: AnimalModel[];
   animalModal: AnimalModel;

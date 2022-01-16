@@ -9,6 +9,8 @@ import { AnimalFormModule } from './animal/animal-form/animal-form.module';
 import { AnimaListModule } from './animal/animal-list/anima-list.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AnimalAdvinharModule } from './animal/animal-advinhar/animal-advinhar.module';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { AnimalAdvinharModule } from './animal/animal-advinhar/animal-advinhar.m
     AppRoutingModule,
     AnimalFormModule,
     AnimaListModule,
-    AnimalAdvinharModule
+    AnimalAdvinharModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
